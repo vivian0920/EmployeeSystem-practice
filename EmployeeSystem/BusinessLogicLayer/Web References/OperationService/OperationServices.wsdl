@@ -1,0 +1,3200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" targetNamespace="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices">
+      <s:element name="ProcessVaribleChange">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrWFSendInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessVaribleChangeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ProcessVaribleChangeResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailItemInINSTStateChange">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrMailItemID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="venuMailState" type="tns:enuMailState" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="enuMailState">
+        <s:restriction base="s:string">
+          <s:enumeration value="wfActive" />
+          <s:enumeration value="wfComplete" />
+          <s:enumeration value="wfDisable" />
+          <s:enumeration value="wfAbort" />
+          <s:enumeration value="wfSuspend" />
+          <s:enumeration value="wfRetry" />
+          <s:enumeration value="wfEmpty" />
+          <s:enumeration value="wfInActive" />
+          <s:enumeration value="wfError" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="MailItemInINSTStateChangeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MailItemInINSTStateChangeResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActPtcpChange">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrActInstID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrActPtcpInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActPtcpChangeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ActPtcpChangeResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetActPtcpInst">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrActInstID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrPtcpID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetActPtcpInstResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetActPtcpInstResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailItemInINSTChange">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrWFSendInfo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrMailItemInfo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="vblnDefaultMail" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailItemInINSTChangeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MailItemInINSTChangeResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcVarInstListByWKItemID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrWKItemID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcVarInstListByWKItemIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcVarInstListByWKItemIDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WKItemPtcpInstChange">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrWFSendInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WKItemPtcpInstChangeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="WKItemPtcpInstChangeResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SysVarList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SysVarListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SysVarListResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckWKItemPtcpUsr">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrWFSendInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckWKItemPtcpUsrResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckWKItemPtcpUsrResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNextManActPtcpPreView">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrWFSendInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNextManActPtcpPreViewResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetNextManActPtcpPreViewResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ManWKItemReActive">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrWFSendInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ManWKItemReActiveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ManWKItemReActiveResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BackwardLastProWithoutRecord">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrWFSendInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BackwardLastProWithoutRecordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BackwardLastProWithoutRecordResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerifyMailItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerifyMailItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VerifyMailItemResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerifyWKItemPtcp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerifyWKItemPtcpResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VerifyWKItemPtcpResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserRolChk">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrUserID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrCompID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrRolID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserRolChkResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UserRolChkResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserOUID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrUserID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrCompID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserOUIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserOUIDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SCLoadUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrCompID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrUserID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SCLoadUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SCLoadUserResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SCLoginCheck">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrCompID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrUserID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SCLoginCheckResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SCLoginCheckResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcInstListByProsecutor">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrCompID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrUserID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="vdtmStart" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="vdtmEnd" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="venuFlgPeriod" type="tns:enuFlgPeriod" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="enuFlgPeriod">
+        <s:restriction base="s:string">
+          <s:enumeration value="wfDefinition" />
+          <s:enumeration value="wfInstance" />
+          <s:enumeration value="wfHistory" />
+          <s:enumeration value="wfInstanceAndHistory" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="ProcInstListByProsecutorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcInstListByProsecutorResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcInstListByProposerAndProcState">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrCompID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrUserID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrProcInstState" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="vdtmStart" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="vdtmEnd" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="venuFlgPeriod" type="tns:enuFlgPeriod" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcInstListByProposerAndProcStateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcInstListByProposerAndProcStateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcInstListByProposer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrCompID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrUserID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="vdtmStart" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="vdtmEnd" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="venuFlgPeriod" type="tns:enuFlgPeriod" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcInstListByProposerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcInstListByProposerResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcInstListByProcState">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="vdtmStart" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="vdtmEnd" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrProcInstState" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="venuFlgPeriod" type="tns:enuFlgPeriod" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcInstListByProcStateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcInstListByProcStateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcInstListByDate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="vdtmStart" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="vdtmEnd" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="venuFlgPeriod" type="tns:enuFlgPeriod" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcInstListByDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcInstListByDateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ManActInstAddNext">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="venuFlgRouteType" type="tns:enuFlgRouteType" />
+            <s:element minOccurs="1" maxOccurs="1" name="venuCurrentActInstKind" type="tns:enuActKind" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrCurrentActInstID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrManActInstCompInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="enuFlgRouteType">
+        <s:restriction base="s:string">
+          <s:enumeration value="wfSequential" />
+          <s:enumeration value="wfSplit" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="enuActKind">
+        <s:restriction base="s:string">
+          <s:enumeration value="wfBeginAct" />
+          <s:enumeration value="wfEndAct" />
+          <s:enumeration value="wfManAct" />
+          <s:enumeration value="wfAutoAct" />
+          <s:enumeration value="wfSubProcAct" />
+          <s:enumeration value="wfControlAct" />
+          <s:enumeration value="wfMailAct" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="ManActInstAddNextResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ManActInstAddNextResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcStockDel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrProcDefID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="vintProcVer" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcStockDelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcStockDelResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailItemDelete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="venuMailState" type="tns:enuMailState" />
+            <s:element minOccurs="1" maxOccurs="1" name="vdtmStart" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="vdtmEnd" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="venuFlgPeriod" type="tns:enuFlgPeriod" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailItemDeleteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MailItemDeleteResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SequenceDelete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SequenceDeleteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SequenceDeleteResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UndoFiling">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrProcInstID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="vblnIncludeSubProc" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UndoFilingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UndoFilingResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcInstExport">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrProcInstID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="venuFlgPeriod" type="tns:enuFlgPeriod" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrFileName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcInstExportResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcInstExportResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcInstDel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrProcInstID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="venuFlgPeriod" type="tns:enuFlgPeriod" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcInstDelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcInstDelResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcInstImport">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrFileName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="vblnDelIfExist" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcInstImportResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcInstImportResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcInstListByProcDefID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrProcDefID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrProcVer" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="vdtmStart" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="vdtmEnd" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="venuFlgPeriod" type="tns:enuFlgPeriod" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcInstListByProcDefIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcInstListByProcDefIDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ForJumpActList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrProcInstID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrActInstID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ForJumpActListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ForJumpActListResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BackJumpActList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrRootProcInstID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrProcInstID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrActInstID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BackJumpActListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BackJumpActListResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcInstDelayList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="vintDays" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="venuFlgWorkingTime" type="tns:enuFlgWorkingTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="enuFlgWorkingTime">
+        <s:restriction base="s:string">
+          <s:enumeration value="wfAll_Time" />
+          <s:enumeration value="wfExcludeWeekend" />
+          <s:enumeration value="wfShift" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="ProcInstDelayListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcInstDelayListResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Start">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrWFStartInfo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrExtendDataInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StartResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StartResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcInstSuspend">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrWFSendInfo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrExtendDataInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcInstSuspendResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcInstSuspendResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcInstResume">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrWFSendInfo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrExtendDataInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcInstResumeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcInstResumeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcInstAbort">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrWFSendInfo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrExtendDataInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcInstAbortResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcInstAbortResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Forward">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrWFSendInfo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrExtendDataInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ForwardResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ForwardResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BackwardLastPtcp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrWFSendInfo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrExtendDataInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BackwardLastPtcpResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BackwardLastPtcpResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BackwardLastPro">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrWFSendInfo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrExtendDataInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BackwardLastProResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BackwardLastProResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BackwardWKItemPtcp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrWFSendInfo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrExtendDataInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BackwardWKItemPtcpResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BackwardWKItemPtcpResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BackwardSomeone">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrWFSendInfo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrExtendDataInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BackwardSomeoneResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BackwardSomeoneResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ForJump">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrWFSendInfo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrExtendDataInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ForJumpResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ForJumpResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ForJumpSomeone">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrWFSendInfo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrExtendDataInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ForJumpSomeoneResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ForJumpSomeoneResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BackJumpLastPtcp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrWFSendInfo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrExtendDataInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BackJumpLastPtcpResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BackJumpLastPtcpResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BackJumpLastPro">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrWFSendInfo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrExtendDataInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BackJumpLastProResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BackJumpLastProResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BackJumpWKItemPtcp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrWFSendInfo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrExtendDataInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BackJumpWKItemPtcpResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BackJumpWKItemPtcpResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BackJumpWKItemPro">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrWFSendInfo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrExtendDataInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BackJumpWKItemProResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BackJumpWKItemProResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BackJumpSomeone">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrWFSendInfo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrExtendDataInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BackJumpSomeoneResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BackJumpSomeoneResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Reassign">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrWFSendInfo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrExtendDataInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReassignResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReassignResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Retrieve">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrWFSendInfo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrExtendDataInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetrieveResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcDefDelete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrProcDefID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="vintProcVer" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrExtendDataInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcDefDeleteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcDefDeleteResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Filing">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrProcInstID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="vblnIncludeSubProc" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrExtendDataInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FilingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FilingResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcInstStockCreate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrProcDefID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="venuProcState" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcInstStockCreateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcInstStockCreateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcDefImportWithoutDelSotck">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrFileName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcDefImportWithoutDelSotckResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ProcDefImportWithoutDelSotckResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcDefImport">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrFileName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcDefImportResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ProcDefImportResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcDefExport">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrProcDefID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="vintProcVer" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrFileName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcDefExportResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcDefExportResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcDefExist">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrProcDefID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="vintProcVer" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcDefExistResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ProcDefExistResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserInfoString">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrCompID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrUsrID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserInfoStringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserInfoStringResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Worklist">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrCompID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrUsrID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="vblnIncludeAgent" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="vblnDeepAgent" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WorklistResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WorklistResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WorklistOrderByColumns">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrCompID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrUsrID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="vblnIncludeAgent" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="vblnDeepAgent" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrOrderByColumns" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WorklistOrderByColumnsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WorklistOrderByColumnsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WorklistByDate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrCompID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrUsrID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="vblnIncludeAgent" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="vblnDeepAgent" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="vdtmProSDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="vdtmProEDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WorklistByDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WorklistByDateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WorklistByDateOrderByColumns">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrCompID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrUsrID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="vblnIncludeAgent" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="vblnDeepAgent" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="vdtmProSDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="vdtmProEDate" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrOrderByColumns" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WorklistByDateOrderByColumnsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WorklistByDateOrderByColumnsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcDefList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcDefListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcDefListResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcInstList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcInstListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcInstListResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcVarList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrProcDefID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="vintProcVer" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcVarListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcVarListResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcVarInstList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrProcInstID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcVarInstListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcVarInstListResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SubProcVarList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrSubProcDefID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="venuSubProcState" type="tns:enuProcState" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="enuProcState">
+        <s:restriction base="s:string">
+          <s:enumeration value="wfInDevelop" />
+          <s:enumeration value="wfTest" />
+          <s:enumeration value="wfUnPublished" />
+          <s:enumeration value="wfPublished" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="SubProcVarListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SubProcVarListResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InstructList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrProcInstID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InstructListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InstructListResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelOverdueStock">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelOverdueStockResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DelOverdueStockResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcInstDelete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrProcInstID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="venuFlgPeriod" type="tns:enuFlgPeriod" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcInstDeleteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcInstDeleteResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserIDList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserIDListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserIDListResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OUIDList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrOuDomainID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrOuCompID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OUIDListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OUIDListResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RoleIDList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrRoleDomainID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrRoleCompID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RoleIDListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RoleIDListResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GroupIDList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrGrpDomainID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrGrpCompID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GroupIDListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GroupIDListResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OuUserIDList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrDomainID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrCompID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrOuID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OuUserIDListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OuUserIDListResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecursiveUserIDList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrDomainID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrCompID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrOuID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecursiveUserIDListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RecursiveUserIDListResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserSchema">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserSchemaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserSchemaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OuRoleIDList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrDomainID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrCompID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrOuID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OuRoleIDListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OuRoleIDListResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GroupUserIDList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrDomainID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrCompID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrGroupID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GroupUserIDListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GroupUserIDListResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserIDLikeList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrUserID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserIDLikeListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserIDLikeListResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NewestProcDefList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NewestProcDefListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NewestProcDefListResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ManWKItemTrack">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrProcInstID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="vblnIncludeSubProcInst" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ManWKItemTrackResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ManWKItemTrackResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WKItemTrack">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrProcInstID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="vblnIncludeSubProcInst" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WKItemTrackResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WKItemTrackResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WKItemTrackByWKItemID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrWKItemID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="vblnIncludeSubProcInst" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WKItemTrackByWKItemIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WKItemTrackByWKItemIDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WKItemTrackByWKItemKind">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrProcInstID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="venuWKItemKind" type="tns:enuActKind" />
+            <s:element minOccurs="1" maxOccurs="1" name="vblnIncludeSubProcInst" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WKItemTrackByWKItemKindResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WKItemTrackByWKItemKindResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrievalbeWKItemList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vstrAPConnID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrCompID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vstrUsrID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrievalbeWKItemListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetrievalbeWKItemListResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ProcessVaribleChangeSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcessVaribleChange" />
+  </wsdl:message>
+  <wsdl:message name="ProcessVaribleChangeSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcessVaribleChangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="MailItemInINSTStateChangeSoapIn">
+    <wsdl:part name="parameters" element="tns:MailItemInINSTStateChange" />
+  </wsdl:message>
+  <wsdl:message name="MailItemInINSTStateChangeSoapOut">
+    <wsdl:part name="parameters" element="tns:MailItemInINSTStateChangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ActPtcpChangeSoapIn">
+    <wsdl:part name="parameters" element="tns:ActPtcpChange" />
+  </wsdl:message>
+  <wsdl:message name="ActPtcpChangeSoapOut">
+    <wsdl:part name="parameters" element="tns:ActPtcpChangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetActPtcpInstSoapIn">
+    <wsdl:part name="parameters" element="tns:GetActPtcpInst" />
+  </wsdl:message>
+  <wsdl:message name="GetActPtcpInstSoapOut">
+    <wsdl:part name="parameters" element="tns:GetActPtcpInstResponse" />
+  </wsdl:message>
+  <wsdl:message name="MailItemInINSTChangeSoapIn">
+    <wsdl:part name="parameters" element="tns:MailItemInINSTChange" />
+  </wsdl:message>
+  <wsdl:message name="MailItemInINSTChangeSoapOut">
+    <wsdl:part name="parameters" element="tns:MailItemInINSTChangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcVarInstListByWKItemIDSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcVarInstListByWKItemID" />
+  </wsdl:message>
+  <wsdl:message name="ProcVarInstListByWKItemIDSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcVarInstListByWKItemIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="WKItemPtcpInstChangeSoapIn">
+    <wsdl:part name="parameters" element="tns:WKItemPtcpInstChange" />
+  </wsdl:message>
+  <wsdl:message name="WKItemPtcpInstChangeSoapOut">
+    <wsdl:part name="parameters" element="tns:WKItemPtcpInstChangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SysVarListSoapIn">
+    <wsdl:part name="parameters" element="tns:SysVarList" />
+  </wsdl:message>
+  <wsdl:message name="SysVarListSoapOut">
+    <wsdl:part name="parameters" element="tns:SysVarListResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckWKItemPtcpUsrSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckWKItemPtcpUsr" />
+  </wsdl:message>
+  <wsdl:message name="CheckWKItemPtcpUsrSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckWKItemPtcpUsrResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetNextManActPtcpPreViewSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNextManActPtcpPreView" />
+  </wsdl:message>
+  <wsdl:message name="GetNextManActPtcpPreViewSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNextManActPtcpPreViewResponse" />
+  </wsdl:message>
+  <wsdl:message name="ManWKItemReActiveSoapIn">
+    <wsdl:part name="parameters" element="tns:ManWKItemReActive" />
+  </wsdl:message>
+  <wsdl:message name="ManWKItemReActiveSoapOut">
+    <wsdl:part name="parameters" element="tns:ManWKItemReActiveResponse" />
+  </wsdl:message>
+  <wsdl:message name="BackwardLastProWithoutRecordSoapIn">
+    <wsdl:part name="parameters" element="tns:BackwardLastProWithoutRecord" />
+  </wsdl:message>
+  <wsdl:message name="BackwardLastProWithoutRecordSoapOut">
+    <wsdl:part name="parameters" element="tns:BackwardLastProWithoutRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="VerifyMailItemSoapIn">
+    <wsdl:part name="parameters" element="tns:VerifyMailItem" />
+  </wsdl:message>
+  <wsdl:message name="VerifyMailItemSoapOut">
+    <wsdl:part name="parameters" element="tns:VerifyMailItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="VerifyWKItemPtcpSoapIn">
+    <wsdl:part name="parameters" element="tns:VerifyWKItemPtcp" />
+  </wsdl:message>
+  <wsdl:message name="VerifyWKItemPtcpSoapOut">
+    <wsdl:part name="parameters" element="tns:VerifyWKItemPtcpResponse" />
+  </wsdl:message>
+  <wsdl:message name="UserRolChkSoapIn">
+    <wsdl:part name="parameters" element="tns:UserRolChk" />
+  </wsdl:message>
+  <wsdl:message name="UserRolChkSoapOut">
+    <wsdl:part name="parameters" element="tns:UserRolChkResponse" />
+  </wsdl:message>
+  <wsdl:message name="UserOUIDSoapIn">
+    <wsdl:part name="parameters" element="tns:UserOUID" />
+  </wsdl:message>
+  <wsdl:message name="UserOUIDSoapOut">
+    <wsdl:part name="parameters" element="tns:UserOUIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SCLoadUserSoapIn">
+    <wsdl:part name="parameters" element="tns:SCLoadUser" />
+  </wsdl:message>
+  <wsdl:message name="SCLoadUserSoapOut">
+    <wsdl:part name="parameters" element="tns:SCLoadUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="SCLoginCheckSoapIn">
+    <wsdl:part name="parameters" element="tns:SCLoginCheck" />
+  </wsdl:message>
+  <wsdl:message name="SCLoginCheckSoapOut">
+    <wsdl:part name="parameters" element="tns:SCLoginCheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcInstListByProsecutorSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcInstListByProsecutor" />
+  </wsdl:message>
+  <wsdl:message name="ProcInstListByProsecutorSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcInstListByProsecutorResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcInstListByProposerAndProcStateSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcInstListByProposerAndProcState" />
+  </wsdl:message>
+  <wsdl:message name="ProcInstListByProposerAndProcStateSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcInstListByProposerAndProcStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcInstListByProposerSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcInstListByProposer" />
+  </wsdl:message>
+  <wsdl:message name="ProcInstListByProposerSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcInstListByProposerResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcInstListByProcStateSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcInstListByProcState" />
+  </wsdl:message>
+  <wsdl:message name="ProcInstListByProcStateSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcInstListByProcStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcInstListByDateSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcInstListByDate" />
+  </wsdl:message>
+  <wsdl:message name="ProcInstListByDateSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcInstListByDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ManActInstAddNextSoapIn">
+    <wsdl:part name="parameters" element="tns:ManActInstAddNext" />
+  </wsdl:message>
+  <wsdl:message name="ManActInstAddNextSoapOut">
+    <wsdl:part name="parameters" element="tns:ManActInstAddNextResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcStockDelSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcStockDel" />
+  </wsdl:message>
+  <wsdl:message name="ProcStockDelSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcStockDelResponse" />
+  </wsdl:message>
+  <wsdl:message name="MailItemDeleteSoapIn">
+    <wsdl:part name="parameters" element="tns:MailItemDelete" />
+  </wsdl:message>
+  <wsdl:message name="MailItemDeleteSoapOut">
+    <wsdl:part name="parameters" element="tns:MailItemDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="SequenceDeleteSoapIn">
+    <wsdl:part name="parameters" element="tns:SequenceDelete" />
+  </wsdl:message>
+  <wsdl:message name="SequenceDeleteSoapOut">
+    <wsdl:part name="parameters" element="tns:SequenceDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="UndoFilingSoapIn">
+    <wsdl:part name="parameters" element="tns:UndoFiling" />
+  </wsdl:message>
+  <wsdl:message name="UndoFilingSoapOut">
+    <wsdl:part name="parameters" element="tns:UndoFilingResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcInstExportSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcInstExport" />
+  </wsdl:message>
+  <wsdl:message name="ProcInstExportSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcInstExportResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcInstDelSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcInstDel" />
+  </wsdl:message>
+  <wsdl:message name="ProcInstDelSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcInstDelResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcInstImportSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcInstImport" />
+  </wsdl:message>
+  <wsdl:message name="ProcInstImportSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcInstImportResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcInstListByProcDefIDSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcInstListByProcDefID" />
+  </wsdl:message>
+  <wsdl:message name="ProcInstListByProcDefIDSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcInstListByProcDefIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ForJumpActListSoapIn">
+    <wsdl:part name="parameters" element="tns:ForJumpActList" />
+  </wsdl:message>
+  <wsdl:message name="ForJumpActListSoapOut">
+    <wsdl:part name="parameters" element="tns:ForJumpActListResponse" />
+  </wsdl:message>
+  <wsdl:message name="BackJumpActListSoapIn">
+    <wsdl:part name="parameters" element="tns:BackJumpActList" />
+  </wsdl:message>
+  <wsdl:message name="BackJumpActListSoapOut">
+    <wsdl:part name="parameters" element="tns:BackJumpActListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcInstDelayListSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcInstDelayList" />
+  </wsdl:message>
+  <wsdl:message name="ProcInstDelayListSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcInstDelayListResponse" />
+  </wsdl:message>
+  <wsdl:message name="StartSoapIn">
+    <wsdl:part name="parameters" element="tns:Start" />
+  </wsdl:message>
+  <wsdl:message name="StartSoapOut">
+    <wsdl:part name="parameters" element="tns:StartResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcInstSuspendSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcInstSuspend" />
+  </wsdl:message>
+  <wsdl:message name="ProcInstSuspendSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcInstSuspendResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcInstResumeSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcInstResume" />
+  </wsdl:message>
+  <wsdl:message name="ProcInstResumeSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcInstResumeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcInstAbortSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcInstAbort" />
+  </wsdl:message>
+  <wsdl:message name="ProcInstAbortSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcInstAbortResponse" />
+  </wsdl:message>
+  <wsdl:message name="ForwardSoapIn">
+    <wsdl:part name="parameters" element="tns:Forward" />
+  </wsdl:message>
+  <wsdl:message name="ForwardSoapOut">
+    <wsdl:part name="parameters" element="tns:ForwardResponse" />
+  </wsdl:message>
+  <wsdl:message name="BackwardLastPtcpSoapIn">
+    <wsdl:part name="parameters" element="tns:BackwardLastPtcp" />
+  </wsdl:message>
+  <wsdl:message name="BackwardLastPtcpSoapOut">
+    <wsdl:part name="parameters" element="tns:BackwardLastPtcpResponse" />
+  </wsdl:message>
+  <wsdl:message name="BackwardLastProSoapIn">
+    <wsdl:part name="parameters" element="tns:BackwardLastPro" />
+  </wsdl:message>
+  <wsdl:message name="BackwardLastProSoapOut">
+    <wsdl:part name="parameters" element="tns:BackwardLastProResponse" />
+  </wsdl:message>
+  <wsdl:message name="BackwardWKItemPtcpSoapIn">
+    <wsdl:part name="parameters" element="tns:BackwardWKItemPtcp" />
+  </wsdl:message>
+  <wsdl:message name="BackwardWKItemPtcpSoapOut">
+    <wsdl:part name="parameters" element="tns:BackwardWKItemPtcpResponse" />
+  </wsdl:message>
+  <wsdl:message name="BackwardSomeoneSoapIn">
+    <wsdl:part name="parameters" element="tns:BackwardSomeone" />
+  </wsdl:message>
+  <wsdl:message name="BackwardSomeoneSoapOut">
+    <wsdl:part name="parameters" element="tns:BackwardSomeoneResponse" />
+  </wsdl:message>
+  <wsdl:message name="ForJumpSoapIn">
+    <wsdl:part name="parameters" element="tns:ForJump" />
+  </wsdl:message>
+  <wsdl:message name="ForJumpSoapOut">
+    <wsdl:part name="parameters" element="tns:ForJumpResponse" />
+  </wsdl:message>
+  <wsdl:message name="ForJumpSomeoneSoapIn">
+    <wsdl:part name="parameters" element="tns:ForJumpSomeone" />
+  </wsdl:message>
+  <wsdl:message name="ForJumpSomeoneSoapOut">
+    <wsdl:part name="parameters" element="tns:ForJumpSomeoneResponse" />
+  </wsdl:message>
+  <wsdl:message name="BackJumpLastPtcpSoapIn">
+    <wsdl:part name="parameters" element="tns:BackJumpLastPtcp" />
+  </wsdl:message>
+  <wsdl:message name="BackJumpLastPtcpSoapOut">
+    <wsdl:part name="parameters" element="tns:BackJumpLastPtcpResponse" />
+  </wsdl:message>
+  <wsdl:message name="BackJumpLastProSoapIn">
+    <wsdl:part name="parameters" element="tns:BackJumpLastPro" />
+  </wsdl:message>
+  <wsdl:message name="BackJumpLastProSoapOut">
+    <wsdl:part name="parameters" element="tns:BackJumpLastProResponse" />
+  </wsdl:message>
+  <wsdl:message name="BackJumpWKItemPtcpSoapIn">
+    <wsdl:part name="parameters" element="tns:BackJumpWKItemPtcp" />
+  </wsdl:message>
+  <wsdl:message name="BackJumpWKItemPtcpSoapOut">
+    <wsdl:part name="parameters" element="tns:BackJumpWKItemPtcpResponse" />
+  </wsdl:message>
+  <wsdl:message name="BackJumpWKItemProSoapIn">
+    <wsdl:part name="parameters" element="tns:BackJumpWKItemPro" />
+  </wsdl:message>
+  <wsdl:message name="BackJumpWKItemProSoapOut">
+    <wsdl:part name="parameters" element="tns:BackJumpWKItemProResponse" />
+  </wsdl:message>
+  <wsdl:message name="BackJumpSomeoneSoapIn">
+    <wsdl:part name="parameters" element="tns:BackJumpSomeone" />
+  </wsdl:message>
+  <wsdl:message name="BackJumpSomeoneSoapOut">
+    <wsdl:part name="parameters" element="tns:BackJumpSomeoneResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReassignSoapIn">
+    <wsdl:part name="parameters" element="tns:Reassign" />
+  </wsdl:message>
+  <wsdl:message name="ReassignSoapOut">
+    <wsdl:part name="parameters" element="tns:ReassignResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveSoapIn">
+    <wsdl:part name="parameters" element="tns:Retrieve" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveSoapOut">
+    <wsdl:part name="parameters" element="tns:RetrieveResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcDefDeleteSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcDefDelete" />
+  </wsdl:message>
+  <wsdl:message name="ProcDefDeleteSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcDefDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="FilingSoapIn">
+    <wsdl:part name="parameters" element="tns:Filing" />
+  </wsdl:message>
+  <wsdl:message name="FilingSoapOut">
+    <wsdl:part name="parameters" element="tns:FilingResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcInstStockCreateSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcInstStockCreate" />
+  </wsdl:message>
+  <wsdl:message name="ProcInstStockCreateSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcInstStockCreateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcDefImportWithoutDelSotckSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcDefImportWithoutDelSotck" />
+  </wsdl:message>
+  <wsdl:message name="ProcDefImportWithoutDelSotckSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcDefImportWithoutDelSotckResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcDefImportSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcDefImport" />
+  </wsdl:message>
+  <wsdl:message name="ProcDefImportSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcDefImportResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcDefExportSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcDefExport" />
+  </wsdl:message>
+  <wsdl:message name="ProcDefExportSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcDefExportResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcDefExistSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcDefExist" />
+  </wsdl:message>
+  <wsdl:message name="ProcDefExistSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcDefExistResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserInfoStringSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserInfoString" />
+  </wsdl:message>
+  <wsdl:message name="GetUserInfoStringSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserInfoStringResponse" />
+  </wsdl:message>
+  <wsdl:message name="WorklistSoapIn">
+    <wsdl:part name="parameters" element="tns:Worklist" />
+  </wsdl:message>
+  <wsdl:message name="WorklistSoapOut">
+    <wsdl:part name="parameters" element="tns:WorklistResponse" />
+  </wsdl:message>
+  <wsdl:message name="WorklistOrderByColumnsSoapIn">
+    <wsdl:part name="parameters" element="tns:WorklistOrderByColumns" />
+  </wsdl:message>
+  <wsdl:message name="WorklistOrderByColumnsSoapOut">
+    <wsdl:part name="parameters" element="tns:WorklistOrderByColumnsResponse" />
+  </wsdl:message>
+  <wsdl:message name="WorklistByDateSoapIn">
+    <wsdl:part name="parameters" element="tns:WorklistByDate" />
+  </wsdl:message>
+  <wsdl:message name="WorklistByDateSoapOut">
+    <wsdl:part name="parameters" element="tns:WorklistByDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="WorklistByDateOrderByColumnsSoapIn">
+    <wsdl:part name="parameters" element="tns:WorklistByDateOrderByColumns" />
+  </wsdl:message>
+  <wsdl:message name="WorklistByDateOrderByColumnsSoapOut">
+    <wsdl:part name="parameters" element="tns:WorklistByDateOrderByColumnsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcDefListSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcDefList" />
+  </wsdl:message>
+  <wsdl:message name="ProcDefListSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcDefListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcInstListSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcInstList" />
+  </wsdl:message>
+  <wsdl:message name="ProcInstListSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcInstListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcVarListSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcVarList" />
+  </wsdl:message>
+  <wsdl:message name="ProcVarListSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcVarListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcVarInstListSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcVarInstList" />
+  </wsdl:message>
+  <wsdl:message name="ProcVarInstListSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcVarInstListResponse" />
+  </wsdl:message>
+  <wsdl:message name="SubProcVarListSoapIn">
+    <wsdl:part name="parameters" element="tns:SubProcVarList" />
+  </wsdl:message>
+  <wsdl:message name="SubProcVarListSoapOut">
+    <wsdl:part name="parameters" element="tns:SubProcVarListResponse" />
+  </wsdl:message>
+  <wsdl:message name="InstructListSoapIn">
+    <wsdl:part name="parameters" element="tns:InstructList" />
+  </wsdl:message>
+  <wsdl:message name="InstructListSoapOut">
+    <wsdl:part name="parameters" element="tns:InstructListResponse" />
+  </wsdl:message>
+  <wsdl:message name="DelOverdueStockSoapIn">
+    <wsdl:part name="parameters" element="tns:DelOverdueStock" />
+  </wsdl:message>
+  <wsdl:message name="DelOverdueStockSoapOut">
+    <wsdl:part name="parameters" element="tns:DelOverdueStockResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcInstDeleteSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcInstDelete" />
+  </wsdl:message>
+  <wsdl:message name="ProcInstDeleteSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcInstDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="UserIDListSoapIn">
+    <wsdl:part name="parameters" element="tns:UserIDList" />
+  </wsdl:message>
+  <wsdl:message name="UserIDListSoapOut">
+    <wsdl:part name="parameters" element="tns:UserIDListResponse" />
+  </wsdl:message>
+  <wsdl:message name="OUIDListSoapIn">
+    <wsdl:part name="parameters" element="tns:OUIDList" />
+  </wsdl:message>
+  <wsdl:message name="OUIDListSoapOut">
+    <wsdl:part name="parameters" element="tns:OUIDListResponse" />
+  </wsdl:message>
+  <wsdl:message name="RoleIDListSoapIn">
+    <wsdl:part name="parameters" element="tns:RoleIDList" />
+  </wsdl:message>
+  <wsdl:message name="RoleIDListSoapOut">
+    <wsdl:part name="parameters" element="tns:RoleIDListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GroupIDListSoapIn">
+    <wsdl:part name="parameters" element="tns:GroupIDList" />
+  </wsdl:message>
+  <wsdl:message name="GroupIDListSoapOut">
+    <wsdl:part name="parameters" element="tns:GroupIDListResponse" />
+  </wsdl:message>
+  <wsdl:message name="OuUserIDListSoapIn">
+    <wsdl:part name="parameters" element="tns:OuUserIDList" />
+  </wsdl:message>
+  <wsdl:message name="OuUserIDListSoapOut">
+    <wsdl:part name="parameters" element="tns:OuUserIDListResponse" />
+  </wsdl:message>
+  <wsdl:message name="RecursiveUserIDListSoapIn">
+    <wsdl:part name="parameters" element="tns:RecursiveUserIDList" />
+  </wsdl:message>
+  <wsdl:message name="RecursiveUserIDListSoapOut">
+    <wsdl:part name="parameters" element="tns:RecursiveUserIDListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserSchemaSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserSchema" />
+  </wsdl:message>
+  <wsdl:message name="GetUserSchemaSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserSchemaResponse" />
+  </wsdl:message>
+  <wsdl:message name="OuRoleIDListSoapIn">
+    <wsdl:part name="parameters" element="tns:OuRoleIDList" />
+  </wsdl:message>
+  <wsdl:message name="OuRoleIDListSoapOut">
+    <wsdl:part name="parameters" element="tns:OuRoleIDListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GroupUserIDListSoapIn">
+    <wsdl:part name="parameters" element="tns:GroupUserIDList" />
+  </wsdl:message>
+  <wsdl:message name="GroupUserIDListSoapOut">
+    <wsdl:part name="parameters" element="tns:GroupUserIDListResponse" />
+  </wsdl:message>
+  <wsdl:message name="UserIDLikeListSoapIn">
+    <wsdl:part name="parameters" element="tns:UserIDLikeList" />
+  </wsdl:message>
+  <wsdl:message name="UserIDLikeListSoapOut">
+    <wsdl:part name="parameters" element="tns:UserIDLikeListResponse" />
+  </wsdl:message>
+  <wsdl:message name="NewestProcDefListSoapIn">
+    <wsdl:part name="parameters" element="tns:NewestProcDefList" />
+  </wsdl:message>
+  <wsdl:message name="NewestProcDefListSoapOut">
+    <wsdl:part name="parameters" element="tns:NewestProcDefListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ManWKItemTrackSoapIn">
+    <wsdl:part name="parameters" element="tns:ManWKItemTrack" />
+  </wsdl:message>
+  <wsdl:message name="ManWKItemTrackSoapOut">
+    <wsdl:part name="parameters" element="tns:ManWKItemTrackResponse" />
+  </wsdl:message>
+  <wsdl:message name="WKItemTrackSoapIn">
+    <wsdl:part name="parameters" element="tns:WKItemTrack" />
+  </wsdl:message>
+  <wsdl:message name="WKItemTrackSoapOut">
+    <wsdl:part name="parameters" element="tns:WKItemTrackResponse" />
+  </wsdl:message>
+  <wsdl:message name="WKItemTrackByWKItemIDSoapIn">
+    <wsdl:part name="parameters" element="tns:WKItemTrackByWKItemID" />
+  </wsdl:message>
+  <wsdl:message name="WKItemTrackByWKItemIDSoapOut">
+    <wsdl:part name="parameters" element="tns:WKItemTrackByWKItemIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="WKItemTrackByWKItemKindSoapIn">
+    <wsdl:part name="parameters" element="tns:WKItemTrackByWKItemKind" />
+  </wsdl:message>
+  <wsdl:message name="WKItemTrackByWKItemKindSoapOut">
+    <wsdl:part name="parameters" element="tns:WKItemTrackByWKItemKindResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetrievalbeWKItemListSoapIn">
+    <wsdl:part name="parameters" element="tns:RetrievalbeWKItemList" />
+  </wsdl:message>
+  <wsdl:message name="RetrievalbeWKItemListSoapOut">
+    <wsdl:part name="parameters" element="tns:RetrievalbeWKItemListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="OperationServicesSoap">
+    <wsdl:operation name="ProcessVaribleChange">
+      <wsdl:input message="tns:ProcessVaribleChangeSoapIn" />
+      <wsdl:output message="tns:ProcessVaribleChangeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MailItemInINSTStateChange">
+      <wsdl:input message="tns:MailItemInINSTStateChangeSoapIn" />
+      <wsdl:output message="tns:MailItemInINSTStateChangeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ActPtcpChange">
+      <wsdl:input message="tns:ActPtcpChangeSoapIn" />
+      <wsdl:output message="tns:ActPtcpChangeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActPtcpInst">
+      <wsdl:input message="tns:GetActPtcpInstSoapIn" />
+      <wsdl:output message="tns:GetActPtcpInstSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MailItemInINSTChange">
+      <wsdl:input message="tns:MailItemInINSTChangeSoapIn" />
+      <wsdl:output message="tns:MailItemInINSTChangeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcVarInstListByWKItemID">
+      <wsdl:input message="tns:ProcVarInstListByWKItemIDSoapIn" />
+      <wsdl:output message="tns:ProcVarInstListByWKItemIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WKItemPtcpInstChange">
+      <wsdl:input message="tns:WKItemPtcpInstChangeSoapIn" />
+      <wsdl:output message="tns:WKItemPtcpInstChangeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SysVarList">
+      <wsdl:input message="tns:SysVarListSoapIn" />
+      <wsdl:output message="tns:SysVarListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckWKItemPtcpUsr">
+      <wsdl:input message="tns:CheckWKItemPtcpUsrSoapIn" />
+      <wsdl:output message="tns:CheckWKItemPtcpUsrSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNextManActPtcpPreView">
+      <wsdl:input message="tns:GetNextManActPtcpPreViewSoapIn" />
+      <wsdl:output message="tns:GetNextManActPtcpPreViewSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ManWKItemReActive">
+      <wsdl:input message="tns:ManWKItemReActiveSoapIn" />
+      <wsdl:output message="tns:ManWKItemReActiveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BackwardLastProWithoutRecord">
+      <wsdl:input message="tns:BackwardLastProWithoutRecordSoapIn" />
+      <wsdl:output message="tns:BackwardLastProWithoutRecordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VerifyMailItem">
+      <wsdl:input message="tns:VerifyMailItemSoapIn" />
+      <wsdl:output message="tns:VerifyMailItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VerifyWKItemPtcp">
+      <wsdl:input message="tns:VerifyWKItemPtcpSoapIn" />
+      <wsdl:output message="tns:VerifyWKItemPtcpSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UserRolChk">
+      <wsdl:input message="tns:UserRolChkSoapIn" />
+      <wsdl:output message="tns:UserRolChkSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UserOUID">
+      <wsdl:input message="tns:UserOUIDSoapIn" />
+      <wsdl:output message="tns:UserOUIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SCLoadUser">
+      <wsdl:input message="tns:SCLoadUserSoapIn" />
+      <wsdl:output message="tns:SCLoadUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SCLoginCheck">
+      <wsdl:input message="tns:SCLoginCheckSoapIn" />
+      <wsdl:output message="tns:SCLoginCheckSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcInstListByProsecutor">
+      <wsdl:input message="tns:ProcInstListByProsecutorSoapIn" />
+      <wsdl:output message="tns:ProcInstListByProsecutorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcInstListByProposerAndProcState">
+      <wsdl:input message="tns:ProcInstListByProposerAndProcStateSoapIn" />
+      <wsdl:output message="tns:ProcInstListByProposerAndProcStateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcInstListByProposer">
+      <wsdl:input message="tns:ProcInstListByProposerSoapIn" />
+      <wsdl:output message="tns:ProcInstListByProposerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcInstListByProcState">
+      <wsdl:input message="tns:ProcInstListByProcStateSoapIn" />
+      <wsdl:output message="tns:ProcInstListByProcStateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcInstListByDate">
+      <wsdl:input message="tns:ProcInstListByDateSoapIn" />
+      <wsdl:output message="tns:ProcInstListByDateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ManActInstAddNext">
+      <wsdl:input message="tns:ManActInstAddNextSoapIn" />
+      <wsdl:output message="tns:ManActInstAddNextSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcStockDel">
+      <wsdl:input message="tns:ProcStockDelSoapIn" />
+      <wsdl:output message="tns:ProcStockDelSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MailItemDelete">
+      <wsdl:input message="tns:MailItemDeleteSoapIn" />
+      <wsdl:output message="tns:MailItemDeleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SequenceDelete">
+      <wsdl:input message="tns:SequenceDeleteSoapIn" />
+      <wsdl:output message="tns:SequenceDeleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UndoFiling">
+      <wsdl:input message="tns:UndoFilingSoapIn" />
+      <wsdl:output message="tns:UndoFilingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcInstExport">
+      <wsdl:input message="tns:ProcInstExportSoapIn" />
+      <wsdl:output message="tns:ProcInstExportSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcInstDel">
+      <wsdl:input message="tns:ProcInstDelSoapIn" />
+      <wsdl:output message="tns:ProcInstDelSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcInstImport">
+      <wsdl:input message="tns:ProcInstImportSoapIn" />
+      <wsdl:output message="tns:ProcInstImportSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcInstListByProcDefID">
+      <wsdl:input message="tns:ProcInstListByProcDefIDSoapIn" />
+      <wsdl:output message="tns:ProcInstListByProcDefIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ForJumpActList">
+      <wsdl:input message="tns:ForJumpActListSoapIn" />
+      <wsdl:output message="tns:ForJumpActListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BackJumpActList">
+      <wsdl:input message="tns:BackJumpActListSoapIn" />
+      <wsdl:output message="tns:BackJumpActListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcInstDelayList">
+      <wsdl:input message="tns:ProcInstDelayListSoapIn" />
+      <wsdl:output message="tns:ProcInstDelayListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Start">
+      <wsdl:input message="tns:StartSoapIn" />
+      <wsdl:output message="tns:StartSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcInstSuspend">
+      <wsdl:input message="tns:ProcInstSuspendSoapIn" />
+      <wsdl:output message="tns:ProcInstSuspendSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcInstResume">
+      <wsdl:input message="tns:ProcInstResumeSoapIn" />
+      <wsdl:output message="tns:ProcInstResumeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcInstAbort">
+      <wsdl:input message="tns:ProcInstAbortSoapIn" />
+      <wsdl:output message="tns:ProcInstAbortSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Forward">
+      <wsdl:input message="tns:ForwardSoapIn" />
+      <wsdl:output message="tns:ForwardSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BackwardLastPtcp">
+      <wsdl:input message="tns:BackwardLastPtcpSoapIn" />
+      <wsdl:output message="tns:BackwardLastPtcpSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BackwardLastPro">
+      <wsdl:input message="tns:BackwardLastProSoapIn" />
+      <wsdl:output message="tns:BackwardLastProSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BackwardWKItemPtcp">
+      <wsdl:input message="tns:BackwardWKItemPtcpSoapIn" />
+      <wsdl:output message="tns:BackwardWKItemPtcpSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BackwardSomeone">
+      <wsdl:input message="tns:BackwardSomeoneSoapIn" />
+      <wsdl:output message="tns:BackwardSomeoneSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ForJump">
+      <wsdl:input message="tns:ForJumpSoapIn" />
+      <wsdl:output message="tns:ForJumpSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ForJumpSomeone">
+      <wsdl:input message="tns:ForJumpSomeoneSoapIn" />
+      <wsdl:output message="tns:ForJumpSomeoneSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BackJumpLastPtcp">
+      <wsdl:input message="tns:BackJumpLastPtcpSoapIn" />
+      <wsdl:output message="tns:BackJumpLastPtcpSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BackJumpLastPro">
+      <wsdl:input message="tns:BackJumpLastProSoapIn" />
+      <wsdl:output message="tns:BackJumpLastProSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BackJumpWKItemPtcp">
+      <wsdl:input message="tns:BackJumpWKItemPtcpSoapIn" />
+      <wsdl:output message="tns:BackJumpWKItemPtcpSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BackJumpWKItemPro">
+      <wsdl:input message="tns:BackJumpWKItemProSoapIn" />
+      <wsdl:output message="tns:BackJumpWKItemProSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BackJumpSomeone">
+      <wsdl:input message="tns:BackJumpSomeoneSoapIn" />
+      <wsdl:output message="tns:BackJumpSomeoneSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Reassign">
+      <wsdl:input message="tns:ReassignSoapIn" />
+      <wsdl:output message="tns:ReassignSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Retrieve">
+      <wsdl:input message="tns:RetrieveSoapIn" />
+      <wsdl:output message="tns:RetrieveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcDefDelete">
+      <wsdl:input message="tns:ProcDefDeleteSoapIn" />
+      <wsdl:output message="tns:ProcDefDeleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Filing">
+      <wsdl:input message="tns:FilingSoapIn" />
+      <wsdl:output message="tns:FilingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcInstStockCreate">
+      <wsdl:input message="tns:ProcInstStockCreateSoapIn" />
+      <wsdl:output message="tns:ProcInstStockCreateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcDefImportWithoutDelSotck">
+      <wsdl:input message="tns:ProcDefImportWithoutDelSotckSoapIn" />
+      <wsdl:output message="tns:ProcDefImportWithoutDelSotckSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcDefImport">
+      <wsdl:input message="tns:ProcDefImportSoapIn" />
+      <wsdl:output message="tns:ProcDefImportSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcDefExport">
+      <wsdl:input message="tns:ProcDefExportSoapIn" />
+      <wsdl:output message="tns:ProcDefExportSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcDefExist">
+      <wsdl:input message="tns:ProcDefExistSoapIn" />
+      <wsdl:output message="tns:ProcDefExistSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserInfoString">
+      <wsdl:input message="tns:GetUserInfoStringSoapIn" />
+      <wsdl:output message="tns:GetUserInfoStringSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Worklist">
+      <wsdl:input message="tns:WorklistSoapIn" />
+      <wsdl:output message="tns:WorklistSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WorklistOrderByColumns">
+      <wsdl:input message="tns:WorklistOrderByColumnsSoapIn" />
+      <wsdl:output message="tns:WorklistOrderByColumnsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WorklistByDate">
+      <wsdl:input message="tns:WorklistByDateSoapIn" />
+      <wsdl:output message="tns:WorklistByDateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WorklistByDateOrderByColumns">
+      <wsdl:input message="tns:WorklistByDateOrderByColumnsSoapIn" />
+      <wsdl:output message="tns:WorklistByDateOrderByColumnsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcDefList">
+      <wsdl:input message="tns:ProcDefListSoapIn" />
+      <wsdl:output message="tns:ProcDefListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcInstList">
+      <wsdl:input message="tns:ProcInstListSoapIn" />
+      <wsdl:output message="tns:ProcInstListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcVarList">
+      <wsdl:input message="tns:ProcVarListSoapIn" />
+      <wsdl:output message="tns:ProcVarListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcVarInstList">
+      <wsdl:input message="tns:ProcVarInstListSoapIn" />
+      <wsdl:output message="tns:ProcVarInstListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SubProcVarList">
+      <wsdl:input message="tns:SubProcVarListSoapIn" />
+      <wsdl:output message="tns:SubProcVarListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InstructList">
+      <wsdl:input message="tns:InstructListSoapIn" />
+      <wsdl:output message="tns:InstructListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelOverdueStock">
+      <wsdl:input message="tns:DelOverdueStockSoapIn" />
+      <wsdl:output message="tns:DelOverdueStockSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcInstDelete">
+      <wsdl:input message="tns:ProcInstDeleteSoapIn" />
+      <wsdl:output message="tns:ProcInstDeleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UserIDList">
+      <wsdl:input message="tns:UserIDListSoapIn" />
+      <wsdl:output message="tns:UserIDListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OUIDList">
+      <wsdl:input message="tns:OUIDListSoapIn" />
+      <wsdl:output message="tns:OUIDListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RoleIDList">
+      <wsdl:input message="tns:RoleIDListSoapIn" />
+      <wsdl:output message="tns:RoleIDListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GroupIDList">
+      <wsdl:input message="tns:GroupIDListSoapIn" />
+      <wsdl:output message="tns:GroupIDListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OuUserIDList">
+      <wsdl:input message="tns:OuUserIDListSoapIn" />
+      <wsdl:output message="tns:OuUserIDListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RecursiveUserIDList">
+      <wsdl:input message="tns:RecursiveUserIDListSoapIn" />
+      <wsdl:output message="tns:RecursiveUserIDListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserSchema">
+      <wsdl:input message="tns:GetUserSchemaSoapIn" />
+      <wsdl:output message="tns:GetUserSchemaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OuRoleIDList">
+      <wsdl:input message="tns:OuRoleIDListSoapIn" />
+      <wsdl:output message="tns:OuRoleIDListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GroupUserIDList">
+      <wsdl:input message="tns:GroupUserIDListSoapIn" />
+      <wsdl:output message="tns:GroupUserIDListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UserIDLikeList">
+      <wsdl:input message="tns:UserIDLikeListSoapIn" />
+      <wsdl:output message="tns:UserIDLikeListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NewestProcDefList">
+      <wsdl:input message="tns:NewestProcDefListSoapIn" />
+      <wsdl:output message="tns:NewestProcDefListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ManWKItemTrack">
+      <wsdl:input message="tns:ManWKItemTrackSoapIn" />
+      <wsdl:output message="tns:ManWKItemTrackSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WKItemTrack">
+      <wsdl:input message="tns:WKItemTrackSoapIn" />
+      <wsdl:output message="tns:WKItemTrackSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WKItemTrackByWKItemID">
+      <wsdl:input message="tns:WKItemTrackByWKItemIDSoapIn" />
+      <wsdl:output message="tns:WKItemTrackByWKItemIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WKItemTrackByWKItemKind">
+      <wsdl:input message="tns:WKItemTrackByWKItemKindSoapIn" />
+      <wsdl:output message="tns:WKItemTrackByWKItemKindSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrievalbeWKItemList">
+      <wsdl:input message="tns:RetrievalbeWKItemListSoapIn" />
+      <wsdl:output message="tns:RetrievalbeWKItemListSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="OperationServicesSoap" type="tns:OperationServicesSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ProcessVaribleChange">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/ProcessVaribleChange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailItemInINSTStateChange">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/MailItemInINSTStateChange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActPtcpChange">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/ActPtcpChange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActPtcpInst">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/GetActPtcpInst" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailItemInINSTChange">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/MailItemInINSTChange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcVarInstListByWKItemID">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/ProcVarInstListByWKItemID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WKItemPtcpInstChange">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/WKItemPtcpInstChange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SysVarList">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/SysVarList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckWKItemPtcpUsr">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/CheckWKItemPtcpUsr" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNextManActPtcpPreView">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/GetNextManActPtcpPreView" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ManWKItemReActive">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/ManWKItemReActive" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BackwardLastProWithoutRecord">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/BackwardLastProWithoutRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerifyMailItem">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/VerifyMailItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerifyWKItemPtcp">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/VerifyWKItemPtcp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserRolChk">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/UserRolChk" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserOUID">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/UserOUID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SCLoadUser">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/SCLoadUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SCLoginCheck">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/SCLoginCheck" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcInstListByProsecutor">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/ProcInstListByProsecutor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcInstListByProposerAndProcState">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/ProcInstListByProposerAndProcState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcInstListByProposer">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/ProcInstListByProposer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcInstListByProcState">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/ProcInstListByProcState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcInstListByDate">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/ProcInstListByDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ManActInstAddNext">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/ManActInstAddNext" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcStockDel">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/ProcStockDel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailItemDelete">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/MailItemDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SequenceDelete">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/SequenceDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UndoFiling">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/UndoFiling" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcInstExport">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/ProcInstExport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcInstDel">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/ProcInstDel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcInstImport">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/ProcInstImport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcInstListByProcDefID">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/ProcInstListByProcDefID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ForJumpActList">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/ForJumpActList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BackJumpActList">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/BackJumpActList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcInstDelayList">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/ProcInstDelayList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Start">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/Start" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcInstSuspend">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/ProcInstSuspend" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcInstResume">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/ProcInstResume" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcInstAbort">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/ProcInstAbort" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Forward">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/Forward" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BackwardLastPtcp">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/BackwardLastPtcp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BackwardLastPro">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/BackwardLastPro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BackwardWKItemPtcp">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/BackwardWKItemPtcp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BackwardSomeone">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/BackwardSomeone" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ForJump">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/ForJump" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ForJumpSomeone">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/ForJumpSomeone" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BackJumpLastPtcp">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/BackJumpLastPtcp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BackJumpLastPro">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/BackJumpLastPro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BackJumpWKItemPtcp">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/BackJumpWKItemPtcp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BackJumpWKItemPro">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/BackJumpWKItemPro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BackJumpSomeone">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/BackJumpSomeone" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Reassign">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/Reassign" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Retrieve">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/Retrieve" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcDefDelete">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/ProcDefDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Filing">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/Filing" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcInstStockCreate">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/ProcInstStockCreate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcDefImportWithoutDelSotck">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/ProcDefImportWithoutDelSotck" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcDefImport">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/ProcDefImport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcDefExport">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/ProcDefExport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcDefExist">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/ProcDefExist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserInfoString">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/GetUserInfoString" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Worklist">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/Worklist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WorklistOrderByColumns">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/WorklistOrderByColumns" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WorklistByDate">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/WorklistByDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WorklistByDateOrderByColumns">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/WorklistByDateOrderByColumns" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcDefList">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/ProcDefList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcInstList">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/ProcInstList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcVarList">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/ProcVarList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcVarInstList">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/ProcVarInstList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubProcVarList">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/SubProcVarList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InstructList">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/InstructList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelOverdueStock">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/DelOverdueStock" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcInstDelete">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/ProcInstDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserIDList">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/UserIDList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OUIDList">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/OUIDList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RoleIDList">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/RoleIDList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GroupIDList">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/GroupIDList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OuUserIDList">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/OuUserIDList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecursiveUserIDList">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/RecursiveUserIDList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserSchema">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/GetUserSchema" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OuRoleIDList">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/OuRoleIDList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GroupUserIDList">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/GroupUserIDList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserIDLikeList">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/UserIDLikeList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewestProcDefList">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/NewestProcDefList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ManWKItemTrack">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/ManWKItemTrack" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WKItemTrack">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/WKItemTrack" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WKItemTrackByWKItemID">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/WKItemTrackByWKItemID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WKItemTrackByWKItemKind">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/WKItemTrackByWKItemKind" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrievalbeWKItemList">
+      <soap:operation soapAction="http://localhost/GSS.Stirrup.Workflow20.OperationServices/OperationServices/RetrievalbeWKItemList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="OperationServices">
+    <wsdl:port name="OperationServicesSoap" binding="tns:OperationServicesSoap">
+      <soap:address location="http://fbu-cosmos/OperationServices/OperationServices.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

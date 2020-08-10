@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0AD351DC-6FDF-40D0-8923-8C6C259792C0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DomainObject</RootNamespace>
+    <AssemblyName>DomainObject</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Common.Logging">
+      <HintPath>..\packages\Common.Logging.1.2.0\lib\1.0\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.3\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Aop">
+      <HintPath>..\packages\Spring.Aop.1.3.2\lib\net40\Spring.Aop.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Core">
+      <HintPath>..\packages\Spring.Core.1.3.2\lib\net40\Spring.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Data">
+      <HintPath>..\packages\Spring.Data.1.3.2\lib\net40\Spring.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DomainEnum\DBProviderEnum.cs" />
+    <Compile Include="DomainObject\BaseDomainObject.cs" />
+    <Compile Include="DomainObject\DefinedDomainObject\Authentication\AuthenticationDataObject.cs" />
+    <Compile Include="DomainObject\DefinedDomainObject\Authentication\OrganizationInfoObject.cs" />
+    <Compile Include="DomainObject\DefinedDomainObject\Authentication\RoleInfoObject.cs" />
+    <Compile Include="DomainObject\DefinedDomainObject\Authentication\UserInfoObject.cs" />
+    <Compile Include="DomainObject\DefinedDomainObject\KendoGridObject.cs" />
+    <Compile Include="DomainObject\DefinedDomainObject\KendoGridSortObject.cs" />
+    <Compile Include="DomainObject\DefinedDomainObject\KendoPanelBarObject.cs" />
+    <Compile Include="DomainObject\DefinedDomainObject\PivotGridFieldsObject.cs" />
+    <Compile Include="DomainObject\DefinedDomainObject\RuleEngineObject.cs" />
+    <Compile Include="DomainObject\DeliverObject.cs" />
+    <Compile Include="DomainObject\GridParametersObject.cs" />
+    <Compile Include="DomainObject\TableDomainObject\CaseHistoryObject.cs" />
+    <Compile Include="DomainObject\TableDomainObject\CaseQueryObject.cs" />
+    <Compile Include="DomainObject\TableDomainObject\CUTPHOTOObject.cs" />
+    <Compile Include="DomainObject\TableDomainObject\FuncMenuObject.cs" />
+    <Compile Include="DomainObject\TableDomainObject\LMCMCUSTObject.cs" />
+    <Compile Include="DomainObject\TableDomainObject\ReCodeObject.cs" />
+    <Compile Include="DomainObject\TableDomainObject\ReDataSetObject.cs" />
+    <Compile Include="DomainObject\TableDomainObject\ReDatasetParty.cs" />
+    <Compile Include="DomainObject\TableDomainObject\ReDataSetPartyAttribute.cs" />
+    <Compile Include="DomainObject\TableDomainObject\ReRuleObject.cs" />
+    <Compile Include="DomainObject\TableDomainObject\ReRuleStepDetailObject.cs" />
+    <Compile Include="DomainObject\TableDomainObject\ReRuleStepObject.cs" />
+    <Compile Include="DomainObject\TableDomainObject\WorkListObject.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DomainObject\ReceiveObject.cs" />
+    <Compile Include="RowMapper\TableRowMapper\CaseQueryRowMapper.cs" />
+    <Compile Include="RowMapper\TableRowMapper\CUTPHOTORowMapper.cs" />
+    <Compile Include="RowMapper\TableRowMapper\FuncMenuRowMapper.cs" />
+    <Compile Include="RowMapper\TableRowMapper\WorkListRowMapper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="RowMapper\DefinedRowMapper\" />
+    <Folder Include="RowMapper\ViewRowMapper\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LogHandler\LogHandler.csproj">
+      <Project>{9f91a883-3a1d-42e5-9ef5-4e46bfeffec3}</Project>
+      <Name>LogHandler</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net"
+         xmlns:db="http://www.springframework.net/database"
+         xmlns:tx="http://www.springframework.net/tx"
+         xmlns:aop="http://www.springframework.net/aop">
+
+  <!-- the DataAccessAOP Advice -->
+  <object id="DataAccessAOPAdvice" type="DataAccessLayer.DataAccessAOPAdvice, DataAccessLayer">
+  </object>
+
+  <!--設定DataAccessLayer命名空間底下的所有Dao皆套用AOP機制-->
+  <!--此種寫法在Dao需要墊一層Interface, 產生CompositionAopProxy, 否則無法正常RollBack Data-->
+  <!--參考：http://www.springframework.net/docs/1.3.0/reference/html/transaction.html -->
+  <object id="daoOperation" type="Spring.Aop.Support.SdkRegularExpressionMethodPointcut, Spring.Aop">
+    <property name="Pattern" value="DataAccessLayer.Dao.Implement.*Dao">
+    </property>
+  </object>
+
+  <aop:config>
+    <aop:advisor pointcut-ref="daoOperation" advice-ref="DataAccessAOPAdvice"/>
+  </aop:config>
+
+  <!-- DB Server 設定 -->
+  <object type="Spring.Objects.Factory.Config.PropertyPlaceholderConfigurer, Spring.Core">
+    <property name="ConfigSections" value="databaseSettings"/>
+  </object>
+
+  <!--TFB DB-->
+  <object id="DbProvider" type="Spring.Objects.Factory.Config.MethodInvokingFactoryObject, Spring.Core">
+    <property name="TargetType"  value="DataAccessLayer.DBProvider, DataAccessLayer"/>
+    <property name="TargetMethod" value="GetDbProvider"/>
+    <property name="Arguments">
+      <list>
+        <value>OracleClient-2.0</value>
+      </list>
+    </property>
+  </object>
+
+  <!--COSMOS DB-->
+  <object id="GetDbProviderForMobile" type="Spring.Objects.Factory.Config.MethodInvokingFactoryObject, Spring.Core">
+    <property name="TargetType"  value="DataAccessLayer.DBProvider, DataAccessLayer"/>
+    <property name="TargetMethod" value="GetDbProviderForMobile"/>
+    <property name="Arguments">
+      <list>
+        <value>OracleClient-2.0</value>
+      </list>
+    </property>
+  </object>
+
+  <!--將DbProvider掛上AdoTemplate-->
+  <object id="adoTemplate" type="Spring.Data.Generic.AdoTemplate, Spring.Data">
+    <property name="DbProvider" ref="DbProvider"/>
+  </object>
+
+  <object id="adoTemplateForMobile" type="Spring.Data.Generic.AdoTemplate, Spring.Data">
+    <property name="DbProvider" ref="GetDbProviderForMobile"/>
+  </object>
+
+  <!--每一個Dao，所使用的Spring.Data.Core.AdoTemplate是哪一個DB provider-->
+  
+  <object id="FuncMenuDao" type="DataAccessLayer.Dao.Implement.FuncMenuDao, DataAccessLayer">
+    <property name="AdoTemplate" ref="adoTemplate"/>
+  </object>
+
+  <object id="WorkListDao" type="DataAccessLayer.Dao.Implement.WorkListDao, DataAccessLayer">
+    <property name="AdoTemplate" ref="adoTemplate"/>
+  </object>
+
+  <object id="CaseQueryDao" type="DataAccessLayer.Dao.Implement.CaseQueryDao, DataAccessLayer">
+    <property name="AdoTemplate" ref="adoTemplateForMobile"/>
+  </object>
+  
+  <object id="WorkListForMobileDao" type="DataAccessLayer.Dao.Implement.WorkListForMobileDao, DataAccessLayer">
+    <property name="AdoTemplate" ref="adoTemplateForMobile"/>
+  </object>
+
+  <object id="ClipboardDao" type="DataAccessLayer.Dao.Implement.ClipboardDao, DataAccessLayer">
+    <property name="AdoTemplate" ref="adoTemplate"/>
+  </object>
+  
+  <object id="SystemDao" type="DataAccessLayer.Dao.Implement.SystemDao, DataAccessLayer">
+    <property name="AdoTemplate" ref="adoTemplate"/>
+  </object>
+
+  <object id="RuleEngineDao" type="DataAccessLayer.Dao.Implement.RuleEngineDao, DataAccessLayer">
+    <property name="AdoTemplate" ref="adoTemplate"/>
+  </object>
+  
+  <!--DaoEnd (快速搜尋用，Dao請加在上面)-->
+</objects>

@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net"
+         xmlns:db="http://www.springframework.net/database"
+         xmlns:tx="http://www.springframework.net/tx"
+         xmlns:aop="http://www.springframework.net/aop">
+
+  <!--固定，將transaction交由TransactionManager控管-->
+  <!--參考：http://www.springframework.net/doc-latest/reference/html/transaction.html#key-abstractions-->
+  <!--參考：http://springframework.net/doc-latest/reference/html/tx-quickstart.html-->
+  <!--TxScopeTransactionManager為分散式交易管理, 在同一Method中使用兩個不同AdoTemplate時,-->
+  <!--必須確認：1. Distributed Transaction Coordinator(MSDTC)是否開啟-->
+  <!--          2. 防火牆是否將Distributed Transaction Coordinator(MSDTC)設為例外-->
+  <!--          3. 兩台電腦是否認得彼此的NetBIOS 設定路徑: C:\Windows\System32\drivers\etc hosts及lmhosts.sam兩個檔案-->
+  <object id="transactionManager" type="Spring.Data.Core.TxScopeTransactionManager, Spring.Data">
+  </object>
+
+  <!-- the transactional advice -->
+  <tx:advice id="txAdvice" transaction-manager="transactionManager">
+    <tx:attributes>
+      <tx:method name="Get*" read-only="true"/>
+      <tx:method name="Select*" read-only="true"/>
+      <tx:method name="*"/>
+    </tx:attributes>
+  </tx:advice>
+
+  <!-- the BusinessLogicAOP Advice -->
+  <object id="BusinessLogicAOPAdvice" type="BusinessLogicLayer.BusinessLogicAOPAdvice, BusinessLogicLayer">
+  </object>
+
+  <!--設定BusinessLogic命名空間底下的所有Service皆套用AOP機制-->
+  <!--此種寫法在Service需要墊一層Interface, 產生CompositionAopProxy, 否則無法正常RollBack Data-->
+  <!--參考：http://www.springframework.net/docs/1.3.0/reference/html/transaction.html -->
+  <object id="serviceOperation" type="Spring.Aop.Support.SdkRegularExpressionMethodPointcut, Spring.Aop">
+    <property name="Pattern" value="BusinessLogicLayer.Service.Implement.*Service">
+    </property>
+  </object>
+
+  <aop:config>
+    <aop:advisor pointcut-ref="serviceOperation" advice-ref="BusinessLogicAOPAdvice"/>
+    <aop:advisor pointcut-ref="serviceOperation" advice-ref="txAdvice"/>
+  </aop:config>
+
+  <!--該Service用到哪一些Dao，要加進去Property裡面，該Property是ref到哪一個Dao object-->
+  
+  <object id="AuthenticationMethod" type="BusinessLogicLayer.Service.Implement.AuthenticationMethod, BusinessLogicLayer">
+  </object>
+
+  <object id="PermissionControl" type="PermissionControl.Implement.PermissionControl, PermissionControl">    
+  </object>
+  
+  <object id="FuncMenuService" type="BusinessLogicLayer.Service.Implement.FuncMenuService, BusinessLogicLayer">
+    <property name="FuncMenuDao" ref="FuncMenuDao"/>
+  </object>
+
+  <object id="WorkListService" type="BusinessLogicLayer.Service.Implement.WorkListService, BusinessLogicLayer">
+    <property name="WorkListDao" ref="WorkListDao"/>
+    <property name="WorkListForMobileDao" ref="WorkListForMobileDao"/>
+    <property name="CaseQueryDao" ref="CaseQueryDao"/>
+  </object>
+  
+  <object id="ClipboardService" type="BusinessLogicLayer.Service.Implement.ClipboardService, BusinessLogicLayer">
+    <property name="ClipboardDao" ref="ClipboardDao"/>
+  </object>
+
+  <object id="SystemService" type="BusinessLogicLayer.Service.Implement.SystemService, BusinessLogicLayer">
+    <property name="SystemDao" ref="SystemDao"/>
+  </object>
+
+  <object id="RuleEngineService" type="BusinessLogicLayer.Service.Implement.RuleEngineService, BusinessLogicLayer">
+    <property name="RuleEngineDao" ref="RuleEngineDao"/>
+  </object>
+
+  <!--ServiceEnd (快速搜尋用，Service請加在上面)-->
+</objects>
