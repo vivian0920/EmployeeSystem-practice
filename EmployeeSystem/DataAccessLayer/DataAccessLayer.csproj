@@ -70,6 +70,9 @@
     <Reference Include="Common.Logging">
       <HintPath>..\packages\Common.Logging.1.2.0\lib\1.0\Common.Logging.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Spring.Aop">
       <HintPath>..\packages\Spring.Aop.1.3.2\lib\net40\Spring.Aop.dll</HintPath>
     </Reference>
@@ -93,6 +96,7 @@
     <Compile Include="Dao\Implement\BaseDao.cs" />
     <Compile Include="Dao\Implement\CaseQueryDao.cs" />
     <Compile Include="Dao\Implement\ClipboardDao.cs" />
+    <Compile Include="Dao\Implement\CustomDao.cs" />
     <Compile Include="Dao\Implement\FuncMenuDao.cs" />
     <Compile Include="Dao\Implement\RuleEngineDao.cs" />
     <Compile Include="Dao\Implement\SystemDao.cs" />
@@ -100,6 +104,7 @@
     <Compile Include="Dao\Implement\WorkListForMobileDao.cs" />
     <Compile Include="Dao\Interface\ICaseQueryDao.cs" />
     <Compile Include="Dao\Interface\IClipboardDao.cs" />
+    <Compile Include="Dao\Interface\ICustomDao.cs" />
     <Compile Include="Dao\Interface\IFuncMenuDao.cs" />
     <Compile Include="Dao\Interface\IRuleEngineDao.cs" />
     <Compile Include="Dao\Interface\ISystemDao.cs" />
@@ -125,6 +130,9 @@
       <Project>{F0CE8B0A-A629-443D-8212-434C9872EACC}</Project>
       <Name>WebUtility</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

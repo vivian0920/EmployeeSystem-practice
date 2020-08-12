@@ -45,3 +45,15 @@ E:\WebApp_Training_HomeWork1\WebApp_Training_HomeWork\DomainObject\bin\Debug\Log
 E:\WebApp_Training_HomeWork1\WebApp_Training_HomeWork\DomainObject\obj\Debug\DomainObject.csprojResolveAssemblyReference.cache
 E:\WebApp_Training_HomeWork1\WebApp_Training_HomeWork\DomainObject\obj\Debug\DomainObject.dll
 E:\WebApp_Training_HomeWork1\WebApp_Training_HomeWork\DomainObject\obj\Debug\DomainObject.pdb
+D:\HomeWork\WebApp_Training_HomeWork1\WebApp_Training_HomeWork\DomainObject\bin\Debug\DomainObject.dll
+D:\HomeWork\WebApp_Training_HomeWork1\WebApp_Training_HomeWork\DomainObject\bin\Debug\DomainObject.pdb
+D:\HomeWork\WebApp_Training_HomeWork1\WebApp_Training_HomeWork\DomainObject\bin\Debug\LogHandler.dll
+D:\HomeWork\WebApp_Training_HomeWork1\WebApp_Training_HomeWork\DomainObject\bin\Debug\Newtonsoft.Json.dll
+D:\HomeWork\WebApp_Training_HomeWork1\WebApp_Training_HomeWork\DomainObject\bin\Debug\log4net.dll
+D:\HomeWork\WebApp_Training_HomeWork1\WebApp_Training_HomeWork\DomainObject\bin\Debug\LogHandler.pdb
+D:\HomeWork\WebApp_Training_HomeWork1\WebApp_Training_HomeWork\DomainObject\obj\Debug\DomainObject.csprojAssemblyReference.cache
+D:\HomeWork\WebApp_Training_HomeWork1\WebApp_Training_HomeWork\DomainObject\obj\Debug\DomainObject.csproj.CoreCompileInputs.cache
+D:\HomeWork\WebApp_Training_HomeWork1\WebApp_Training_HomeWork\DomainObject\obj\Debug\DomainObject.csproj.CopyComplete
+D:\HomeWork\WebApp_Training_HomeWork1\WebApp_Training_HomeWork\DomainObject\obj\Debug\DomainObject.dll
+D:\HomeWork\WebApp_Training_HomeWork1\WebApp_Training_HomeWork\DomainObject\obj\Debug\DomainObject.pdb
+D:\HomeWork\WebApp_Training_HomeWork1\WebApp_Training_HomeWork\DomainObject\bin\Debug\Newtonsoft.Json.xml

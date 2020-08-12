@@ -79,9 +79,8 @@
     <Reference Include="GSS.Stirrup.Scorpio30.ProcessKit">
       <HintPath>bin\Debug\GSS.Stirrup.Scorpio30.ProcessKit.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Spring.Aop">
       <HintPath>..\packages\Spring.Aop.1.3.2\lib\net40\Spring.Aop.dll</HintPath>
@@ -119,12 +118,14 @@
     <Compile Include="Service\Implement\BaseMethod.cs" />
     <Compile Include="Service\Implement\BaseService.cs" />
     <Compile Include="Service\Implement\ClipboardService.cs" />
+    <Compile Include="Service\Implement\CustomService.cs" />
     <Compile Include="Service\Implement\FuncMenuService.cs" />
     <Compile Include="Service\Implement\RuleEngineService.cs" />
     <Compile Include="Service\Implement\SystemService.cs" />
     <Compile Include="Service\Implement\WorkListService.cs" />
     <Compile Include="Service\Interface\IAuthenticationMethod.cs" />
     <Compile Include="Service\Interface\IClipboardService.cs" />
+    <Compile Include="Service\Interface\ICustomService.cs" />
     <Compile Include="Service\Interface\IFuncMenuService.cs" />
     <Compile Include="Service\Interface\IRuleEngineService.cs" />
     <Compile Include="Service\Interface\ISystemService.cs" />
@@ -162,6 +163,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

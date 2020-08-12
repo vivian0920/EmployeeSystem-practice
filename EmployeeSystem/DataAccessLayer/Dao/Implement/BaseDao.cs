@@ -222,18 +222,18 @@ namespace DataAccessLayer.Dao.Implement
         /// </history>
         public void SetParameters(DBProviderEnum DbProvider, string strSql, object obj, ref IDbParameters parameters)
         {
-            string strTag = GetParameterTag(DbProvider);  
+            string strTag = GetParameterTag(DbProvider);
 
             foreach (PropertyInfo objItem in obj.GetType().GetProperties())
             {
                 if (strSql.IndexOf(strTag + objItem.Name) >= 0 && objItem.GetValue(obj, null) != null)
                 {
-                    
+
                     parameters.Add(objItem.Name, ConvertDbType.GetDbType(objItem.PropertyType.Name)).Value = objItem.GetValue(obj, null);
-                }   
+                }
             }
         }
-        
+
         #endregion
 
         #region Generate SQL Command Script
@@ -258,7 +258,7 @@ namespace DataAccessLayer.Dao.Implement
             {
                 BaseDao objBaseDao = new BaseDao();
                 StringBuilder strSql = new StringBuilder();
-                string strTableName=string.Empty;
+                string strTableName = string.Empty;
                 string strTableNoLock = objBaseDao.GetTableNoLock(DbProvider);
                 int index = 0;
 
@@ -285,10 +285,10 @@ namespace DataAccessLayer.Dao.Implement
                         index = 1;
                     }
 
-                    
+
                 }
 
-                strSql.AppendLine("FROM "+strTableName + strTableNoLock + "");
+                strSql.AppendLine("FROM " + strTableName + strTableNoLock + "");
                 strSql.AppendLine("WHERE 1=1");
 
                 return strSql;
@@ -307,10 +307,10 @@ namespace DataAccessLayer.Dao.Implement
             {
                 BaseDao objBaseDao = new BaseDao();
                 StringBuilder strSql = new StringBuilder();
-                string strTableName=string.Empty;
+                string strTableName = string.Empty;
                 string strTag = objBaseDao.GetParameterTag(DbProvider);
-                StringBuilder strFieldName=new StringBuilder();
-                StringBuilder strParameter=new StringBuilder();
+                StringBuilder strFieldName = new StringBuilder();
+                StringBuilder strParameter = new StringBuilder();
                 int index = 0;
 
                 //解析資料
@@ -323,7 +323,7 @@ namespace DataAccessLayer.Dao.Implement
                     }
                     else
                     {
-                        if (objItem.GetValue(obj, null) != null && objItem.Name != "TABLE_NAME" && objItem.Name !="CREATE_DATE")
+                        if (objItem.GetValue(obj, null) != null && objItem.Name != "TABLE_NAME" && objItem.Name != "CREATE_DATE")
                         {
                             if (index == 0)
                             {
@@ -336,8 +336,8 @@ namespace DataAccessLayer.Dao.Implement
                                 strParameter.AppendLine("   , " + strTag + objItem.Name);
                             }
                             index = 1;
-                        }       
-                    }                    
+                        }
+                    }
                 }
 
                 //自動新增CREATE_DATE
@@ -345,16 +345,16 @@ namespace DataAccessLayer.Dao.Implement
                 {
                     strFieldName.AppendLine("   , CREATE_DATE");
                     strParameter.AppendLine("   , SYSDATE");
-                }                
+                }
 
-                strSql.AppendLine("INSERT INTO "+ strTableName+" ");
+                strSql.AppendLine("INSERT INTO " + strTableName + " ");
                 strSql.AppendLine(" ( ");
                 strSql.AppendLine(strFieldName.ToString());
                 strSql.AppendLine(" )");
                 strSql.AppendLine("VALUES");
                 strSql.AppendLine(" ( ");
                 strSql.AppendLine(strParameter.ToString());
-                strSql.AppendLine(" )");                
+                strSql.AppendLine(" )");
 
                 return strSql;
             }
@@ -381,15 +381,15 @@ namespace DataAccessLayer.Dao.Implement
                     }
                 }
 
-                strSql.AppendLine("DELETE "+ strTableName);
-                strSql.AppendLine("WHERE 1=1 ");
+                strSql.AppendLine("DELETE " + strTableName);
+                strSql.AppendLine("  WHERE 1=1 ");
 
                 return strSql;
             }
 
             public static string ProcIn(DBProviderEnum DbProvider, Array ary, ref IDbParameters parameters)
             {
-                BaseDao objBaseDao=new BaseDao();
+                BaseDao objBaseDao = new BaseDao();
                 string strTag = objBaseDao.GetParameterTag(DbProvider);
                 string strParameters = string.Empty;
                 string strParaName = "P_" + Singleton.GetParaName();
@@ -412,7 +412,7 @@ namespace DataAccessLayer.Dao.Implement
                 }
 
                 return strParameters;
-            } 
+            }
         }
         #endregion
 
@@ -434,7 +434,7 @@ namespace DataAccessLayer.Dao.Implement
                 return (T)RowMapperHelp.GetRowMapperObject(obj, dataReader);
             }
         }
-        #endregion        
+        #endregion
 
         #region Singleton
         /// <summary>
@@ -455,18 +455,18 @@ namespace DataAccessLayer.Dao.Implement
             {
                 string strParaName = string.Empty;
                 string strReady = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-                int intBits = 8;                
+                int intBits = 8;
 
                 lock (syncRoot)
                 {
                     Guid gid = Guid.NewGuid();
-                    char[] rtn = new char[intBits];     
-   
+                    char[] rtn = new char[intBits];
+
                     var ba = gid.ToByteArray();
 
                     for (int i = 0; i < intBits; i++)
                     {
-                        rtn[i] = strReady[((ba[i] + ba[intBits+i]) % 61)];
+                        rtn[i] = strReady[((ba[i] + ba[intBits + i]) % 61)];
                     }
 
                     foreach (char item in rtn)
@@ -479,7 +479,7 @@ namespace DataAccessLayer.Dao.Implement
                 return strParaName;
             }
         }
-        #endregion        
+        #endregion
 
         #region Private Method
 
@@ -531,10 +531,10 @@ namespace DataAccessLayer.Dao.Implement
             switch (DbProvider)
             {
                 case DBProviderEnum.Oracle:
-                    strTag= ":";
+                    strTag = ":";
                     break;
                 case DBProviderEnum.MSSQL:
-                    strTag= "@";
+                    strTag = "@";
                     break;
                 default:
                     break;
@@ -568,7 +568,7 @@ namespace DataAccessLayer.Dao.Implement
             }
 
             return strNoLock;
-        }        
+        }
 
         #endregion
     }

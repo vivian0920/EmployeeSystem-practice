@@ -70,5 +70,9 @@
     <property name="RuleEngineDao" ref="RuleEngineDao"/>
   </object>
 
+  <object id="CustomService" type="BusinessLogicLayer.Service.Implement.CustomService, BusinessLogicLayer">
+    <property name="CustomDao" ref="CustomDao"/>
+  </object>
+
   <!--ServiceEnd (快速搜尋用，Service請加在上面)-->
 </objects>

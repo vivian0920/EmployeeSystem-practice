@@ -61,46 +61,46 @@ namespace BusinessLogicLayer
             ReceiveObject objReceive = (ReceiveObject)invocation.Arguments[0];
             bool executeFlag = AuthenticationMethod.CheckToken(objReceive.Token);
 
-            if (executeFlag)
+            //if (executeFlag)
+            //{
+            //依據Token取得AuthenticationData Session資料
+            AuthenticationDataObject objAuthenticationData = (AuthenticationDataObject)this.GetSessionInfo(objReceive.Token);
+
+            //設定Log相關資訊
+            LogInfoObject objLogInfo = new LogInfoObject();
+            objLogInfo.UserID = "SYSTEM"; //objAuthenticationData.UserInfo.UserId;    //TODO: ben 目前先註解之後須打開讓其寫入USER_ID
+            //objLogInfo.UserIP = objAuthenticationData.ClientIP;
+            objLogInfo.FunctionList = objReceive.CurrentPath;
+            objLogInfo.ServiceMethodName = invocation.TargetType.FullName + "." + invocation.Method.Name;
+            objReceive.LogInfoObject = objLogInfo;
+
+            //當inital不為null及false時,才執行method
+            if (objReceive.inital != null && !objReceive.inital)
             {
-                //依據Token取得AuthenticationData Session資料
-                AuthenticationDataObject objAuthenticationData = (AuthenticationDataObject)this.GetSessionInfo(objReceive.Token);
-
-                //設定Log相關資訊
-                LogInfoObject objLogInfo = new LogInfoObject();
-                objLogInfo.UserID = "SYSTEM"; //objAuthenticationData.UserInfo.UserId;    //TODO: ben 目前先註解之後須打開讓其寫入USER_ID
-                objLogInfo.UserIP = objAuthenticationData.ClientIP;
-                objLogInfo.FunctionList = objReceive.CurrentPath;
-                objLogInfo.ServiceMethodName = invocation.TargetType.FullName + "." + invocation.Method.Name;
-                objReceive.LogInfoObject = objLogInfo;
-
-                //當inital不為null及false時,才執行method
-                if (objReceive.inital != null && !objReceive.inital)
+                try
                 {
-                    try
-                    {
-                        invocation.Arguments[0] = objReceive;
-                        objDeliver = (DeliverObject)invocation.Proceed();
-                    }
-                    catch (Exception ex)
-                    {
-                        objReceive.LogInfoObject.Exception = ex.ToString();
-                        LogController.WriteErrorLog(objReceive.LogInfoObject);
-
-                        objDeliver.Data = false;
-                    }
+                    invocation.Arguments[0] = objReceive;
+                    objDeliver = (DeliverObject)invocation.Proceed();
                 }
+                catch (Exception ex)
+                {
+                    objReceive.LogInfoObject.Exception = ex.ToString();
+                    LogController.WriteErrorLog(objReceive.LogInfoObject);
 
-                //指定驗證資訊
-                objDeliver.AuthenticationMessage = "Authentication Success";
-                objDeliver.AuthenticationStatus = "100";
+                    objDeliver.Data = false;
+                }
             }
-            else
-            {
-                //指定驗證資訊
-                objDeliver.AuthenticationMessage = "Authentication Failure";
-                objDeliver.AuthenticationStatus = "200";
-            }
+
+            //指定驗證資訊
+            objDeliver.AuthenticationMessage = "Authentication Success";
+            objDeliver.AuthenticationStatus = "100";
+            //}
+            //else
+            //{
+            //    //指定驗證資訊
+            //    objDeliver.AuthenticationMessage = "Authentication Failure";
+            //    objDeliver.AuthenticationStatus = "200";
+            //}
 
             return objDeliver;
         }
